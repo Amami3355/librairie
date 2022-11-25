@@ -17,7 +17,7 @@ ArrayList<String> auteurs = (ArrayList<String>) request.getAttribute("auteurs");
 				<button type="button" class="btn-close" data-bs-dismiss="modal"
 					aria-label="Close"></button>
 			</div>
-			<form method='post'>
+			<form method='post' action='livres'>
 				<div class="modal-body">
 
 					<select class="form-select" name="auteur"

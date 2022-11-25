@@ -10,7 +10,7 @@
 	</a>
 
 	<ul class="nav nav-pills">
-		<li class="nav-item"><a href="" class="nav-link active"
+		<li class="nav-item"><a href="Index" class="nav-link active"
 			aria-current="page">Home</a></li>
 		
 		<li class="nav-item"><div class="dropdown">
@@ -18,9 +18,9 @@
 					id="dropdownMenuButton1" data-bs-toggle="dropdown"
 					aria-expanded="false">Livres</a>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<li><a class="dropdown-item" href="Livre">Tous les livres</a></li>
-					<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#auteursModal">Livre par Auteur</a></li>
-					<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editeursModal">Livre par Editeur</a></li>
+					<li><a class="dropdown-item" href="livres">Tous les livres</a></li>
+					<li><a class="dropdown-item" href="livres" data-bs-toggle="modal" data-bs-target="#auteursModal">Livre par Auteur</a></li>
+					<li><a class="dropdown-item" href="livres" data-bs-toggle="modal" data-bs-target="#editeursModal">Livre par Editeur</a></li>
 				</ul>
 			</div></li>
 		<li class="nav-item"><div class="dropdown">
@@ -28,9 +28,7 @@
 					id="dropdownMenuButton1" data-bs-toggle="dropdown"
 					aria-expanded="false">Fournisseurs</a>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
-					<li><a class="dropdown-item" href="#">Something else here</a></li>
+					<li><a class="dropdown-item" href="fournisseurs">Tous les fournisseurs</a></li>
 				</ul>
 			</div></li>
 		<li class="nav-item"><div class="dropdown">

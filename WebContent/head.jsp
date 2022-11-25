@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link
@@ -9,6 +9,5 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-	
-<link href="styles/style.css" rel="stylesheet">
-</head>
+
+

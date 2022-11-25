@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<head>
 <%@ include file="head.jsp" %>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 <%@ include file="auteursModal.jsp" %>
 <%@ include file="editeursModal.jsp" %>

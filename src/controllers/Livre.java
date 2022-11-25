@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/Livre", loadOnStartup = 1)
+@WebServlet(urlPatterns = "/livres", loadOnStartup = 1)
 public class Livre extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

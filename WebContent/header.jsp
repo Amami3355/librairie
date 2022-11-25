@@ -36,9 +36,9 @@
 					id="dropdownMenuButton1" data-bs-toggle="dropdown"
 					aria-expanded="false">Commandes</a>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
-					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				<li><a class="dropdown-item" href="commandes">Touts les commandes</a></li>
+					<li><a class="dropdown-item" href="commandes" data-bs-toggle="modal" data-bs-target="#fournisseurModal">Commande par fournisseur</a></li>
+					<li><a class="dropdown-item" href="commandes" data-bs-toggle="modal" data-bs-target="#livreModal">Commande par livre</a></li>
 				</ul>
 			</div></li>
 		<li class="nav-item"><div class="dropdown">

@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<%@ include file="fournisseurModal.jsp"%>
+	<%@ include file="livreModal.jsp"%>
 	<%@ include file="auteursModal.jsp" %>
 	<%@ include file="editeursModal.jsp" %>
 	<%@ include file="header.jsp"%>

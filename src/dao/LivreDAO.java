@@ -11,6 +11,13 @@ import business.Livre;
 
 public class LivreDAO extends ContextDAO {
 
+	
+	/**
+	 * 
+	 * @return la liste de tous les livres disponibles
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static ArrayList<Livre> getAllLivres() throws SQLException, ClassNotFoundException {
 
 		ArrayList<Livre> livres = new ArrayList<>();
@@ -47,6 +54,14 @@ public class LivreDAO extends ContextDAO {
 		return livres;
 	}
 
+	
+	/**
+	 * 
+	 * @param auteur
+	 * @return La liste de tous les livres d'un certain auteur donné en paramètre
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static ArrayList<Livre> getLivresParAuteur(String auteur) throws SQLException, ClassNotFoundException {
 		if (auteur =="") {
 			return getAllLivres();
@@ -83,6 +98,14 @@ public class LivreDAO extends ContextDAO {
 		return livres;
 	}
 
+	
+	/**
+	 * 
+	 * @param editeur
+	 * @return La liste de tous les livre d'un certain éditeur donné en paramètre
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static ArrayList<Livre> getLivresParEditeur(String editeur) throws SQLException, ClassNotFoundException{
 		
 		if (editeur == "") {
@@ -121,6 +144,11 @@ public class LivreDAO extends ContextDAO {
 	}
 	
 
+	/**
+	 * 
+	 * @return La liste de tous les auteurs 
+	 * @throws SQLException
+	 */
 	public static ArrayList<String> getAuteurs() throws SQLException{
 		System.out.println("kkkk");
 		ArrayList<String> auteurs = new ArrayList<>();
@@ -139,6 +167,11 @@ public class LivreDAO extends ContextDAO {
 		return auteurs;
 	}
 	
+	/**
+	 * 
+	 * @return La liste de tous les éditeurs
+	 * @throws SQLException
+	 */
 	public static ArrayList<String> getEditeurs() throws SQLException{
 		ArrayList<String> editeurs = new ArrayList<>();
 		
@@ -154,6 +187,44 @@ public class LivreDAO extends ContextDAO {
 		}
 		
 		return editeurs;
+	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * @param isbn
+	 * @return Le livre dont le isbn est donné en paramètre s'il existe sion null
+	 * @throws SQLException
+	 */
+	public static Livre getLivreParISBN(long isbn) throws SQLException {
+		Livre livre = null;
+		String query = "select * from livre where isbn = ?";
+		try( Connection connection = DriverManager.getConnection(dbUrl, dbLogin, dbPassword); 
+				PreparedStatement statement = connection.prepareStatement(query)
+				){
+			statement.setLong(1, isbn);
+			try(ResultSet result = statement.executeQuery()){
+				if (result.next()) {
+					livre = new Livre();
+					livre.setIsbn(result.getLong("isbn"));
+					livre.setTitre(result.getString("titre_livre"));
+					livre.setTheme(result.getString("theme_livre"));
+					livre.setNbrPages(result.getInt("nbr_pages_livre"));
+					livre.setFormat(result.getString("format_livre"));
+					livre.setNomAuteur(result.getString("nom_auteur"));
+					livre.setPrenomAuteur(result.getString("prenom_auteur"));
+					livre.setEditeur(result.getString("editeur"));
+					livre.setAnneeEdition(result.getLong("annee_edition"));
+					livre.setPrixVente(result.getDouble("prix_vente"));
+					livre.setLangue(result.getString("langue_livre"));
+				}
+				
+			}
+		}
+		
+		return livre;
 	}
 
 }

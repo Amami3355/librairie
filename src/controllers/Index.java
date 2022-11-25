@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import dao.FournisseurDAO;
 import dao.LivreDAO;
 
 @WebServlet(urlPatterns = "/", loadOnStartup = 1)
@@ -26,13 +27,17 @@ public class Index extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			var fournisseurs = FournisseurDAO.getAllFournisseurs();
+			var allLivres = LivreDAO.getAllLivres();
 			var auteurs = LivreDAO.getAuteurs();
 			var editeurs = LivreDAO.getEditeurs();
+			request.setAttribute("fournisseurs", fournisseurs);
+			request.setAttribute("allLivres", allLivres);
 			request.setAttribute("auteurs", auteurs);
 			request.setAttribute("editeurs", editeurs);
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}catch(Exception e){
-			System.out.println("erreur");
+			System.out.println(e.getMessage());
 		}
 	}
 

@@ -11,6 +11,7 @@ import java.util.List;
 
 import business.Fournisseur;
 import dao.FournisseurDAO;
+import dao.LivreDAO;
 
 @WebServlet(urlPatterns = "/fournisseurs")
 public class FournisseurController extends HttpServlet {
@@ -29,10 +30,19 @@ public class FournisseurController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			
+			var auteurs = LivreDAO.getAuteurs();
+			var editeurs = LivreDAO.getEditeurs();
+			var allLivres = LivreDAO.getAllLivres();
+			request.setAttribute("auteurs", auteurs);
+			request.setAttribute("editeurs", editeurs);
+			request.setAttribute("allLivres", allLivres);
+			
+			
 			List<Fournisseur> fournisseurs = FournisseurDAO.getAllFournisseurs();
 			request.setAttribute("fournisseurs", fournisseurs);
 			request.getRequestDispatcher("fournisseurs.jsp").forward(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

@@ -150,7 +150,6 @@ public class LivreDAO extends ContextDAO {
 	 * @throws SQLException
 	 */
 	public static ArrayList<String> getAuteurs() throws SQLException{
-		System.out.println("kkkk");
 		ArrayList<String> auteurs = new ArrayList<>();
 		
 		String query = "select distinct concat(nom_auteur, ' ', prenom_auteur) as auteur from livre";

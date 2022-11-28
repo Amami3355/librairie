@@ -6,6 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+
+import dao.LivreDAO;
 
 @WebServlet(urlPatterns = "/ajouterLivre")
 public class AjouterLivre extends HttpServlet {
@@ -30,7 +33,12 @@ public class AjouterLivre extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		var livreToAdd = request.getParameterMap();
+		try {
+			LivreDAO.AddLivre(livreToAdd);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 		doGet(request, response);
 	}
 
